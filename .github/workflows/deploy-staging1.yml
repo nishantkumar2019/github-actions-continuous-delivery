@@ -10,7 +10,7 @@ jobs:
     
     if: contains(github.event.pull_request.labels.*.name, 'stage')
 
-steps:
+    steps:
       - uses: actions/checkout@v1
       - name: npm install and build webpack
         run: |
@@ -20,7 +20,6 @@ steps:
         with:
           name: webpack artifacts
           path: public/
-
   deploy:
     name: Deploy Node.js app to AWS
     needs: build
